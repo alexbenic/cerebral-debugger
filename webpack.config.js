@@ -16,7 +16,7 @@ const config = {
   entry: (process.env.NODE_ENV === 'production'
     ? []
     : [
-        'webpack-hot-middleware/client?reload=true&path=http://localhost:9000/__webpack_hmr',
+        'webpack-hot-middleware/client?reload=true&path=http://localhost:8000/__webpack_hmr',
       ]
   ).concat(['./src/index']),
   module: {
@@ -38,7 +38,7 @@ const config = {
   },
   output: {
     path: path.resolve('electron', 'build'),
-    publicPath: 'http://localhost:9000/dist/',
+    publicPath: 'http://localhost:8000/dist/',
     filename: 'bundle.js',
   },
   resolve: {

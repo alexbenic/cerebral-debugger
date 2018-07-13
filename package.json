@@ -8,6 +8,7 @@
         "start": "concurrently -k \"cross-env NODE_ENV=development node electron/devServer.js\" \"cross-env NODE_ENV=development npm run electron\"",
         "electron": "electron .",
         "build": "cross-env NODE_ENV=production webpack && npm run prepare:electron",
+        "dist": "rimraf dist/ && cross-env NODE_ENV=production electron-builder --linux deb",
         "prepare:electron": "rimraf electron/dist electron/node_modules && node scripts/createElectronSymlink",
         "package:win": "cross-env NODE_ENV=production DEBUG=electron-builder:7z,electron-builder build -w",
         "package:mac": "cross-env NODE_ENV=production DEBUG=electron-builder:7z,electron-builder build -m",
@@ -47,10 +48,7 @@
         "linux": {
             "packageCategory": "devel",
             "target": [
-                "AppImage",
-                "snap",
                 "deb",
-                "rpm",
                 "tar.gz"
             ],
             "category": "Development"

@@ -6,16 +6,16 @@ const appVersion = app.getVersion()
 const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
-const checkForUpdates = require('./autoUpdate')
+// const checkForUpdates = require('./autoUpdate')
 const https = require('https')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 function createWindow() {
-  if (process.env.NODE_ENV !== 'development') {
-    checkForUpdates()
-  }
+  // if (process.env.NODE_ENV !== 'development') {
+  //   checkForUpdates()
+  // }
 
   const clients = {}
 

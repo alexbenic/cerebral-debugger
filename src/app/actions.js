@@ -11,13 +11,21 @@ export function setComputedStateUpdate({ props, state }) {
 }
 
 export function setComputedState({ props, state }) {
+  const { initialComputedState } = props.data
+
   state.set(
     'computedState',
-    Object.keys(props.data.initialComputedState).reduce((converted, key) => {
-      converted[key.replace(/\./g, '%')] = props.data.initialComputedState[key]
+    initialComputedState
+      ? Object.keys(props.data.initialComputedState).reduce(
+          (converted, key) => {
+            converted[key.replace(/\./g, '%')] =
+              props.data.initialComputedState[key]
 
-      return converted
-    }, {})
+            return converted
+          },
+          {}
+        )
+      : {}
   )
 }
 
